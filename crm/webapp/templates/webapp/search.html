@@ -1,0 +1,57 @@
+{% extends "webapp/base.html" %}
+
+
+
+{% block content %}
+
+
+<table class="table table-primary table-hover table-bordered">
+    <thead class="table-dark">
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Full Name</th>
+            <th scope="col">Department</th>
+            <th scope="col">Phone</th>
+            <th scope="col">E-mail</th>
+            <th scope="col">Address</th>
+            <th scope="col">City</th>
+            <th scope="col">Country</th>
+            <th scope="col">Province</th>
+            <th scope="col">Date joined</th>
+            <th scope="col">View</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if results %}
+            {% for record in results %}
+                <tr>
+                    <td>{{ results.id }}</td>
+                    <td>{{ results.first_name|capfirst }} {{ results.last_name }}</td>
+                    <td>{{ results.category }}</td>
+                    <td>{{ results.phone }}</td>
+                    <td>{{ results.email }}</td>
+                    <td>{{ results.address }}</td>
+                    <td>{{ results.city }}</td>
+                    <td>{{ results.country }}</td>
+                    <td>{{ results.province }}</td>
+                    <td>{{ results.creation_date }}</td>
+                    <td>
+                        <a href="{% url 'view_record' results.id %}" class="btn btn-outline-primary btn-sm">View</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            
+        {% else %}
+            <tr>
+                <td colspan="11" class="text-center">Not Found "{{results}}".</td>
+            </tr>
+        {% endif %}
+    </tbody>
+</table>
+
+
+{% endblock content %}
+
+
+
+

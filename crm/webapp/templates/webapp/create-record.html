@@ -1,0 +1,70 @@
+{% extends "webapp/base.html" %}
+
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+
+
+    <body>
+        
+        <div class="container bg-light shadow-md p-5 form-layout">
+
+        <h3>Create Record</h3>
+
+        <h6>Start adding in the required details for your record.<h6>
+
+        <hr style="border: 1px solid #000; margin: 20px 0;">
+        <br>
+
+
+
+        <form method="POST" autocoplete="off">
+        
+            {% csrf_token %}
+
+            {{ form.first_name|as_crispy_field }}
+
+            <br>
+            {{ form.last_name|as_crispy_field }}
+
+            <br>
+            {{ form.email|as_crispy_field }}
+
+            <br>
+            {{ form.phone|as_crispy_field }}
+
+            <br>
+            {{ form.category|as_crispy_field }}
+
+            <br>
+            {{ form.address|as_crispy_field }}
+
+            <br>
+            {{ form.city|as_crispy_field }}
+
+            <br>
+            {{ form.province|as_crispy_field }}
+
+            <br>
+            {{ form.country|as_crispy_field }}
+
+            <br>
+
+            <div class="text-center">
+
+            <button type='submit' class="btn btn-outline-primary ">Create Record &nbsp; <i class="fa fa-check" aria-hidden="true"></i></button>&nbsp;&nbsp;
+            <a href="{% url 'dashboard' %}" class="btn btn-outline-dark ">Return &nbsp; <i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+        </div>
+
+
+        </form>
+    </div>
+    <br>
+    </body>    
+
+{% endblock content %}
+
+
+
+
