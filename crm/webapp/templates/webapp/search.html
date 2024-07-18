@@ -1,10 +1,6 @@
 {% extends "webapp/base.html" %}
 
-
-
 {% block content %}
-
-
 <table class="table table-primary table-hover table-bordered">
     <thead class="table-dark">
         <tr>
@@ -25,33 +21,33 @@
         {% if results %}
             {% for record in results %}
                 <tr>
-                    <td>{{ results.id }}</td>
-                    <td>{{ results.first_name|capfirst }} {{ results.last_name }}</td>
-                    <td>{{ results.category }}</td>
-                    <td>{{ results.phone }}</td>
-                    <td>{{ results.email }}</td>
-                    <td>{{ results.address }}</td>
-                    <td>{{ results.city }}</td>
-                    <td>{{ results.country }}</td>
-                    <td>{{ results.province }}</td>
-                    <td>{{ results.creation_date }}</td>
+                    <td>{{ record.id }}</td>
+                    <td>{{ record.first_name|capfirst }} {{ record.last_name }}</td>
+                    <td>{{ record.category }}</td>
+                    <td>{{ record.phone }}</td>
+                    <td>{{ record.email }}</td>
+                    <td>{{ record.address }}</td>
+                    <td>{{ record.city }}</td>
+                    <td>{{ record.country }}</td>
+                    <td>{{ record.province }}</td>
+                    <td>{{ record.creation_date }}</td>
                     <td>
-                        <a href="{% url 'view_record' results.id %}" class="btn btn-outline-primary btn-sm">View</a>
+                        <a href="{% url 'view_record' record.id %}" class="btn btn-outline-primary btn-sm">View</a>
                     </td>
                 </tr>
             {% endfor %}
-            
         {% else %}
             <tr>
-                <td colspan="11" class="text-center">Not Found "{{results}}".</td>
+                    <td colspan="11" class="text-center ">
+                    <div class="alert alert-danger" role="alert">
+                        <h3>Not Found "{{ query }}".</h3>
+                      </div>
+                    
+                    
+                    <br>  <a href="{% url 'dashboard' %}" class="btn btn-outline-primary " >search agine</a></td>
             </tr>
         {% endif %}
     </tbody>
+
 </table>
-
-
 {% endblock content %}
-
-
-
-
