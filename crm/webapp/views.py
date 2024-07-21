@@ -109,7 +109,6 @@ def create_record(request):
             messages.success(request, 'Your record was created.')
 
             return redirect('dashboard')
-        # messages.success(request, 'Added Your Record.')    
 
 
     context = {
@@ -129,7 +128,7 @@ def update_record(request, record_id):
 
     record = get_object_or_404(Record, id=record_id)
 
-    form = UpdateRecordForm(instance=record ) # instance means select the record to get from URL
+    form = UpdateRecordForm(instance=record) # instance means select the record to get from URL
 
     if request.method == 'POST':
         

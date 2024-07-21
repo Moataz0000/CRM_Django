@@ -17,7 +17,11 @@
  
     <hr style="border: 1px solid #000; margin: 20px 0;">
     <br>
-
+    {% if form.errors %}
+    <div class="alert alert-danger" role="alert">
+        <p style="color: wheat;">Your password and user name did'nt match please try again <a href="{% url 'login' %}"><button type="button" class="btn btn-light btn-sm">login</button></a></p>
+    </div>
+    {% else %}
 
 
     <form method="POST" autocoplete="off">
@@ -48,7 +52,7 @@
     </div>
 
 </body>
-
+{% endif %}
 
 {% endblock content %}
 

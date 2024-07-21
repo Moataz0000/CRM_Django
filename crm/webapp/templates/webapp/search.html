@@ -8,11 +8,9 @@
             <th scope="col">Full Name</th>
             <th scope="col">Department</th>
             <th scope="col">Phone</th>
-            <th scope="col">E-mail</th>
             <th scope="col">Address</th>
-            <th scope="col">City</th>
-            <th scope="col">Country</th>
-            <th scope="col">Province</th>
+            <th scope="col">Tall</th>
+            <th scope="col">weight</th>
             <th scope="col">Date joined</th>
             <th scope="col">View</th>
         </tr>
@@ -20,21 +18,19 @@
     <tbody>
         {% if results %}
             {% for record in results %}
-                <tr>
-                    <td>{{ record.id }}</td>
-                    <td>{{ record.first_name|capfirst }} {{ record.last_name }}</td>
-                    <td>{{ record.category }}</td>
-                    <td>{{ record.phone }}</td>
-                    <td>{{ record.email }}</td>
-                    <td>{{ record.address }}</td>
-                    <td>{{ record.city }}</td>
-                    <td>{{ record.country }}</td>
-                    <td>{{ record.province }}</td>
-                    <td>{{ record.creation_date }}</td>
-                    <td>
-                        <a href="{% url 'view_record' record.id %}" class="btn btn-outline-primary btn-sm">View</a>
-                    </td>
-                </tr>
+            <tr>
+                <td>{{ record.id }}</td>
+                <td>{{ record.first_name|capfirst }} {{ record.last_name }}</td>
+                <td>{{ record.category }}</td>
+                <td>{{ record.phone }}</td>
+                <td>{{ record.address }}</td>
+                <td>{{ record.tall }}</td>
+                <td>{{ record.weight }}</td>
+                <td>{{ record.creation_date }}</td>
+                <td>
+                    <a href="{% url 'view_record' record.id %}" class="btn btn-outline-primary btn-sm">View</a>
+                </td>
+            </tr>
             {% endfor %}
         {% else %}
             <tr>

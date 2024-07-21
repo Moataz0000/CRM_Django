@@ -23,31 +23,7 @@
         
             {% csrf_token %}
 
-            {{ form.first_name|as_crispy_field }}
-
-            <br>
-            {{ form.last_name|as_crispy_field }}
-
-            <br>
-            {{ form.email|as_crispy_field }}
-
-            <br>
-            {{ form.phone|as_crispy_field }}
-
-            <br>
-            {{ form.category|as_crispy_field }}
-
-            <br>
-            {{ form.address|as_crispy_field }}
-
-            <br>
-            {{ form.city|as_crispy_field }}
-
-            <br>
-            {{ form.province|as_crispy_field }}
-
-            <br>
-            {{ form.country|as_crispy_field }}
+          {{form|crispy}}
 
             <br>
 
