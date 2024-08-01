@@ -1,14 +1,23 @@
-<br>
-{% if messages %}
-    {% for message in messages %}
-        <div id="message" class="container">
-            <div {% if message.tags %}class="alert alert-{{ message.tags }} text-center"{% endif %} role="alert">
-                {% comment %} <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span></button> {% endcomment %}
-                {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Error: {% endif %}
-                {{ message }}
+<div class="message-container text-center">
+    {% if messages %}
+        {% for message in messages %}
+            <div id="message" class="container">
+                <div {% if message.tags %}class="alert alert-{{ message.tags }}"{% endif %} role="alert">
+                    {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Error: {% endif %}
+                    <h5><b>{{ message }}</b></h5>
+                </div>
             </div>
-        </div>
-    {% endfor %}
-{% endif %}
+        {% endfor %}
+    {% endif %}
+</div>
 
 
+
+<script>
+
+    $(document).ready(function(){
+        setTimeout(function(){
+            $('.container').fadeOut('slow');
+        }, 3000);
+    });
+</script>
